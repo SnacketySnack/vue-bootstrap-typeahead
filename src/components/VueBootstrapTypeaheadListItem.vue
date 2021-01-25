@@ -7,42 +7,42 @@
     @mouseout="active = false"
   >
     <slot name="suggestion" v-bind="{ data: data, htmlText: htmlText }">
-      <span v-html="htmlText"></span>
+      <span class="item-text" v-html="htmlText"></span>
     </slot>
   </a>
 </template>
 
 <script>
 export default {
-  name: 'VueBootstrapTypeaheadListItem',
+  name: "VueBootstrapTypeaheadListItem",
 
   props: {
     data: {},
     htmlText: {
-      type: String
+      type: String,
     },
     backgroundVariant: {
-      type: String
+      type: String,
     },
     textVariant: {
-      type: String
-    }
+      type: String,
+    },
   },
 
   data() {
     return {
-      active: false
-    }
+      active: false,
+    };
   },
 
   computed: {
     textClasses() {
-      let classes = ''
-      classes += this.active ? 'active' : ''
-      classes += this.backgroundVariant ? ` bg-${this.backgroundVariant}` : ''
-      classes += this.textVariant ? ` text-${this.textVariant}` : ''
-      return `vbst-item list-group-item list-group-item-action ${classes}`
-    }
-  }
-}
+      let classes = "";
+      classes += this.active ? "active" : "";
+      classes += this.backgroundVariant ? ` bg-${this.backgroundVariant}` : "";
+      classes += this.textVariant ? ` text-${this.textVariant}` : "";
+      return `vbst-item list-group-item list-group-item-action ${classes}`;
+    },
+  },
+};
 </script>
